@@ -3,6 +3,7 @@ import { LoginTradesmanRequest } from './../../models/loginTradesmanRequest';
 import { Component } from '@angular/core';
 import { DataResult } from 'src/app/models/dataResult';
 import { TradesmanResponseIdAndName } from 'src/app/models/tradesmanResponseIdAndName';
+import { StaticTradesman } from 'src/app/models/staticTradesman';
 
 @Component({
   selector: 'app-login',
@@ -30,11 +31,19 @@ export class LoginComponent {
   constructor(private loginService: LoginService) {
   }
 
+  getLink(){
+    if (this.dataResult.success) {
+      return "/home";
+    }
+    return "/login";
+  }
+
   postLogin() {
     this.loginService.postLogin(this.loginTradesmanRequest).subscribe(response => {
       let successedLogin = response.success;
       if (successedLogin) {
         this.dataResult.data = response.data;
+        StaticTradesman.tradesmanId = response.data.tradesmanId;
         this.loginTradesmanRequest.email = "";
       }
 
@@ -42,8 +51,6 @@ export class LoginComponent {
       this.dataResult.message = response.message;
       this.clickedButton = true;
       this.loginTradesmanRequest.password = "";
-      console.log(response.message);
-      
     });
   }
 }

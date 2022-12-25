@@ -1,0 +1,17 @@
+<div class="container mt-4">
+    <table *ngIf="wholesalerNamesAndTotalAmounts.length > 0" class="table table-striped">
+        <thead class="mt-3">
+            <th>Toptancı</th>
+            <th>Durum</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let wholesalerNamesAndTotalAmount of wholesalerNamesAndTotalAmounts">
+                <td>{{wholesalerNamesAndTotalAmount.wholesalerName}}</td>
+                <td>{{wholesalerNamesAndTotalAmount.amount}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <h4 *ngIf="wholesalerNamesAndTotalAmounts.length == 0" class="text-center mt-4 text-danger">
+        Toptancı yok
+    </h4>
+</div>

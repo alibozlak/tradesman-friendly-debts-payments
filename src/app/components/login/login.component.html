@@ -1,4 +1,4 @@
-<div class="form">
+<div class="form container mt-4">
     <h1 class="mb-4 text-center text-primary">Giriş Yap</h1>
     <div class="mb-3">
         <label for="inputEmail" class="form-label text-primary">Email adresiniz :</label>
@@ -10,11 +10,11 @@
         <input type="password" [(ngModel)]="loginTradesmanRequest.password" class="form-control" 
             id="inputPassword">
     </div>
-    <button type="button" class="btn btn-primary" (click)="postLogin()">Gönder</button>
+    <button type="button" [routerLink]="[getLink()]" class="btn btn-primary" (click)="postLogin()">
+        Gönder
+    </button>
 </div>
-<div *ngIf="clickedButton && dataResult.success">
-    <h2 class="text-success text-center">******* Hoşgeldiniz <b>{{dataResult.data.tradesmanName}}</b> *******</h2>
-</div>
+
 <div *ngIf="clickedButton && !dataResult.success">
     <h2 class="text-danger text-center">
         Emaili veya şifreyi hatalı girdiniz!

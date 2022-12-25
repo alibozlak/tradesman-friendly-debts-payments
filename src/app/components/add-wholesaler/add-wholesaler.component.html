@@ -1,0 +1,14 @@
+<div class="form container mt-4">
+    <h1 class="mb-4 text-center text-primary">Toptancı Ekle</h1>
+    <div class="mb-3">
+        <label for="wholesalerName" class="form-label text-primary">Toptancının ismi :</label>
+        <input type="text" [(ngModel)]="createWholesalerRequest.wholesalerName" class="form-control" 
+            id="wholesalerName">
+    </div>
+    <div class="mb-3">
+        <label for="description" class="form-label text-primary">Detay bilgisi :</label>
+        <textarea type="text" [(ngModel)]="createWholesalerRequest.description" class="form-control" 
+            id="description" rows="4"></textarea>
+    </div>
+    <button type="button" class="btn btn-primary" (click)="addWholesaler()">Ekle</button>
+</div>
