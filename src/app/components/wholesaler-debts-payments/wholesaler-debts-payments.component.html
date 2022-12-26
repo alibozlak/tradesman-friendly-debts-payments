@@ -1,0 +1,56 @@
+<div class="container mt-3">
+    <div class="mb-4">
+        <div class="mb-3">
+            <h3 class="text-center text-primary">{{wholesalerDetailMoney.wholesalerName}}</h3>
+            <div class="fs-6 text-danger">
+                Borçların Toplamı : {{wholesalerDetailMoney.totalDebtAmount}}
+            </div>
+            <div class="fs-6 text-success">
+                Ödemelerin Toplamı : {{wholesalerDetailMoney.totalPaymentAmount}}
+            </div>
+            <div *ngIf="summaryAmount < 0" class="fw-semibold fs-6 text-danger">
+                Ödenecek miktar : {{-summaryAmount}}
+            </div>
+            <div *ngIf="summaryAmount > 0" class="fw-semibold fs-6 text-success">
+                Ödenmiş fazlalık : {{summaryAmount}}
+            </div>
+        </div>
+
+        <div class="row">
+            <button type="button" 
+                routerLink="/wholesaler-debs-and-payments/{{wholesalerDetailMoney.wholesalerId}}/add-debt" 
+                class="btn btn-outline-danger mb-2">
+                Borç Ekle
+            </button>
+        </div>
+        <div class="row">
+            <button type="button" 
+                routerLink="/wholesaler-debs-and-payments/{{wholesalerDetailMoney.wholesalerId}}/add-payment" 
+                class="btn btn-outline-success mb-2">
+                Ödeme Ekle
+            </button>
+        </div>
+        <div class="row">
+            <button type="button" 
+                routerLink="/wholesaler-debs-and-payments/{{wholesalerDetailMoney.wholesalerId}}/list-debts" 
+                class="btn btn-outline-danger mb-2">
+                Borçları Listele
+            </button>
+        </div>
+        <div class="row">
+            <button type="button" routerLink="/list-wholesalers" class="btn btn-outline-success mb-5">
+                Ödemeleri Listele
+            </button>
+        </div>
+        <div class="row">
+            <button type="button" routerLink="/list-wholesalers" class="btn btn-secondary mb-2">
+                Toptancı Bilgilerini Güncelle
+            </button>
+        </div>
+        <div class="row">
+            <button type="button" routerLink="/list-wholesalers" class="btn btn-danger mb-2">
+                Toptancıyı Sil
+            </button>
+        </div>
+    </div>
+</div>

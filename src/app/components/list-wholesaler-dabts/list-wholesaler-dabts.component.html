@@ -1,0 +1,22 @@
+<div class="mt-4">
+    <table *ngIf="wholesalerAmountAndDateResponses.length > 0" class="table table-striped">
+        <thead class="mt-3">
+            <th>Borç Miktarı</th>
+            <th>Tarihi</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let wholesalerAmountAndDateResponse of wholesalerAmountAndDateResponses" 
+                routerLink="/wholesaler-debt-detail/{{wholesalerAmountAndDateResponse.wholesalerDebtId}}">
+                <td class="text-danger">
+                    {{wholesalerAmountAndDateResponse.debtAmount}}
+                </td>
+                <td>
+                    {{wholesalerAmountAndDateResponse.date}}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <h4 *ngIf="wholesalerAmountAndDateResponses.length == 0" class="text-center mt-4 text-success">
+        Borcunuz yok
+    </h4>
+</div>

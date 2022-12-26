@@ -1,0 +1,29 @@
+<div class="form container mt-4">
+    <h1 class="mb-4 text-center text-success">Ödeme Ekle</h1>
+    <div class="mb-3">
+        <label for="inputAmount" class="form-label text-success">Ödeme Miktarı :</label>
+        <input type="number" [(ngModel)]="createWholesalerPaymentRequest.paymentAmount" class="form-control" 
+            id="inputAmount">
+        <small *ngIf="createWholesalerPaymentRequest.paymentAmount < 0" class="text-danger">
+            Miktar 0'dan küçük olamaz!
+        </small>
+    </div>
+    <div class="mb-3">
+        <label for="inputDate" class="form-label text-success">Tarih :</label>
+        <input type="date" [(ngModel)]="createWholesalerPaymentRequest.date" class="form-control" 
+            id="inputDate">
+    </div>
+    <div class="mb-4">
+        <label for="inputDescription" class="form-label text-success">Açıklama :</label>
+        <input type="text" [(ngModel)]="createWholesalerPaymentRequest.description" class="form-control" 
+            id="inputDescription">
+    </div>
+    <button *ngIf="createWholesalerPaymentRequest.paymentAmount >= 0" 
+        type="button" class="btn btn-success" (click)="postWholesalerPayment()">
+        Ekle
+    </button>
+    <button *ngIf="createWholesalerPaymentRequest.paymentAmount < 0" type="button" 
+        class="btn btn-success" disabled>
+        Ekle
+    </button>
+</div>

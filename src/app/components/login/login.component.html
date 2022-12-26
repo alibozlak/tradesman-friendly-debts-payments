@@ -10,7 +10,7 @@
         <input type="password" [(ngModel)]="loginTradesmanRequest.password" class="form-control" 
             id="inputPassword">
     </div>
-    <button type="button" [routerLink]="[getLink()]" class="btn btn-primary" (click)="postLogin()">
+    <button type="button" routerLink="{{getLink()}}" class="btn btn-primary" (click)="postLogin()">
         Gönder
     </button>
 </div>

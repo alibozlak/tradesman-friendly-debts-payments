@@ -5,9 +5,19 @@
             <th>Durum</th>
         </thead>
         <tbody>
-            <tr *ngFor="let wholesalerNamesAndTotalAmount of wholesalerNamesAndTotalAmounts">
-                <td>{{wholesalerNamesAndTotalAmount.wholesalerName}}</td>
-                <td>{{wholesalerNamesAndTotalAmount.amount}}</td>
+            <tr *ngFor="let wholesalerNamesAndTotalAmount of wholesalerNamesAndTotalAmounts"
+                routerLink="/wholesaler-debs-and-payments/{{wholesalerNamesAndTotalAmount.wholesalerId}}">
+                <td [class]="wholesalerClass(wholesalerNamesAndTotalAmount.amount)">
+                    {{wholesalerNamesAndTotalAmount.wholesalerName}}
+                </td>
+                <td [class]="wholesalerClass(wholesalerNamesAndTotalAmount.amount)">
+                    <div *ngIf="wholesalerNamesAndTotalAmount.amount < 0">
+                        {{-wholesalerNamesAndTotalAmount.amount}}
+                    </div>
+                    <div *ngIf="wholesalerNamesAndTotalAmount.amount > 0">
+                        {{wholesalerNamesAndTotalAmount.amount}}
+                    </div>
+                </td>
             </tr>
         </tbody>
     </table>

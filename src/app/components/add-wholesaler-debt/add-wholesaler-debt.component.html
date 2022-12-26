@@ -1,0 +1,28 @@
+<div class="form container mt-4">
+    <h1 class="mb-4 text-center text-danger">Borç Ekle</h1>
+    <div class="mb-3">
+        <label for="inputAmount" class="form-label text-danger">Borç Miktarı :</label>
+        <input type="number" [(ngModel)]="createWholesalerDebtRequest.debtAmount" class="form-control" 
+            id="inputAmount">
+        <small *ngIf="createWholesalerDebtRequest.debtAmount < 0" class="text-danger">
+            Miktar 0'dan küçük olamaz!
+        </small>
+    </div>
+    <div class="mb-3">
+        <label for="inputDate" class="form-label text-danger">Tarih :</label>
+        <input type="date" [(ngModel)]="createWholesalerDebtRequest.date" class="form-control" 
+            id="inputDate">
+    </div>
+    <div class="mb-4">
+        <label for="inputDescription" class="form-label text-danger">Açıklama :</label>
+        <input type="text" [(ngModel)]="createWholesalerDebtRequest.description" class="form-control" 
+            id="inputDescription">
+    </div>
+    <button *ngIf="createWholesalerDebtRequest.debtAmount >= 0" 
+        type="button" class="btn btn-danger" (click)="postWholesalerDebt()">
+        Ekle
+    </button>
+    <button *ngIf="createWholesalerDebtRequest.debtAmount < 0" type="button" class="btn btn-danger" disabled>
+        Ekle
+    </button>
+</div>

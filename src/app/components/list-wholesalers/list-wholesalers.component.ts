@@ -22,4 +22,14 @@ export class ListWholesalersComponent implements OnInit {
       });
   }
 
+  wholesalerClass(amount : number){
+    if (amount < 0) {
+      return "text-danger fw-semibold";
+    }
+    if (amount > 0) {
+      return "text-success fw-semibold";
+    }
+    return "text-secondary";
+  }
+
 }
