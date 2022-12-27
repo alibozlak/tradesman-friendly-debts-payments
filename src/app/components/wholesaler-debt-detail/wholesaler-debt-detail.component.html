@@ -2,7 +2,8 @@
     <h1 class="mb-4 text-center text-danger">Borç Detayı</h1>
     <div class="mb-3">
         <label for="inputAmount" class="form-label text-danger">Borç Miktarı :</label>
-        <input type="number" [(ngModel)]="wholesalerDebtGetAllColumn.debtAmount" class="form-control" id="inputAmount">
+        <input type="number" [(ngModel)]="wholesalerDebtGetAllColumn.debtAmount" 
+            class="form-control" id="inputAmount">
         <small *ngIf="wholesalerDebtGetAllColumn.debtAmount < 0" class="text-danger">
             Miktar 0'dan küçük olamaz!
         </small>
@@ -28,14 +29,21 @@
     </div>
 
     <button *ngIf="wholesalerDebtGetAllColumn.debtAmount >= 0" type="button" 
-        class="btn btn-primary me-3">
+        class="btn btn-primary me-3" (click)="updateWholesalerDebt()">
         Güncelle
     </button>
     <button *ngIf="wholesalerDebtGetAllColumn.debtAmount < 0" type="button" 
         class="btn btn-primary me-3" disabled>
         Güncelle
     </button>
-    <button type="button" class="btn btn-danger">
+    <button type="button" *ngIf="!clickedDeleteButton" class="btn btn-danger" (click)="clickedDeleteButton = true">
         Borcu Sil
     </button>
+    <div *ngIf="clickedDeleteButton" class="mt-3 text-danger fw-semibold">
+        Bu borcu silmek istediğinize emin misiniz?
+        <button type="button" routerLink="/wholesaler-debs-and-payments/{{wholesalerIdForBack}}/list-debts" 
+            class="btn btn-danger ms-3" (click)="deleteWholesalerDebt()">
+            Evet, eminim
+        </button>
+    </div>
 </div>

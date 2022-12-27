@@ -1,0 +1,22 @@
+<div class="mt-4">
+    <table *ngIf="wholesalerPaymentAmountAndDateResponses.length > 0" class="table table-striped">
+        <thead class="mt-3">
+            <th class="text-success">Ödeme</th>
+            <th class="text-success">Tarihi (Yıl-Ay-Gün)</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let wholesalerPaymentAmountAndDateResponse of wholesalerPaymentAmountAndDateResponses"
+                routerLink="/wholesaler-payment-detail/{{wholesalerPaymentAmountAndDateResponse.wholesalerPaymentId}}">
+                <td class="text-success">
+                    {{wholesalerPaymentAmountAndDateResponse.paymentAmount}}
+                </td>
+                <td>
+                    {{wholesalerPaymentAmountAndDateResponse.date}}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <h4 *ngIf="wholesalerPaymentAmountAndDateResponses.length == 0" class="text-center mt-4 text-secondary">
+        Ödemeniz yok
+    </h4>
+</div>

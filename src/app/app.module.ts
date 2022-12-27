@@ -14,6 +14,8 @@ import { AddWholesalerDebtComponent } from './components/add-wholesaler-debt/add
 import { AddWholesalerPaymentComponent } from './components/add-wholesaler-payment/add-wholesaler-payment.component';
 import { ListWholesalerDabtsComponent } from './components/list-wholesaler-dabts/list-wholesaler-dabts.component';
 import { WholesalerDebtDetailComponent } from './components/wholesaler-debt-detail/wholesaler-debt-detail.component';
+import { ListWholesalerPaymentsComponent } from './components/list-wholesaler-payments/list-wholesaler-payments.component';
+import { WholesalerPaymentDetailComponent } from './components/wholesaler-payment-detail/wholesaler-payment-detail.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import { WholesalerDebtDetailComponent } from './components/wholesaler-debt-deta
     AddWholesalerPaymentComponent,
     ListWholesalerDabtsComponent,
     WholesalerDebtDetailComponent,
+    ListWholesalerPaymentsComponent,
+    WholesalerPaymentDetailComponent,
   ],
   imports: [
     BrowserModule,

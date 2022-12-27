@@ -28,4 +28,13 @@ export class WholesalerDebtService {
     let newUrl = this.url + "/get-by-id/" + wholesalerDebtId;
     return this.httpClient.get<DataResult<WholesalerDebtGetAllColumn>>(newUrl);
   }
+
+  putWholesalerDebt(wholesalerDebtGetAllColumn : WholesalerDebtGetAllColumn){
+    return this.httpClient.put<Result>(this.url,wholesalerDebtGetAllColumn);
+  }
+
+  deleteWholesalerDebt(wholesalerDebtId : number){
+    let deleteUrl = this.url + "/delete-by-id/" + wholesalerDebtId;
+    return this.httpClient.delete<Result>(deleteUrl);
+  }
 }

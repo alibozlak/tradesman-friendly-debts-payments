@@ -21,6 +21,8 @@ export class WholesalerDebtDetailComponent implements OnInit {
   };
 
   wholesalerIdAndNameResponses : WholesalerIdAndNameResponse[] = [];
+  clickedDeleteButton : boolean = false;
+  wholesalerIdForBack : number = 0;
 
   constructor(
     private wholesalerDebtService : WholesalerDebtService,
@@ -35,8 +37,31 @@ export class WholesalerDebtDetailComponent implements OnInit {
 
     this.wholesalerDebtService.getById(this.activatedRoute.snapshot.params['wholesalerDebtId'])
       .subscribe(response => {
-        this.wholesalerDebtGetAllColumn = response.data;
+        let wholesalerDebt = response.data;
+        this.wholesalerDebtGetAllColumn = wholesalerDebt;
+        this.wholesalerIdForBack = wholesalerDebt.wholesalerId;
       })
+  }
+
+  updateWholesalerDebt(){
+    this.wholesalerDebtService.putWholesalerDebt(this.wholesalerDebtGetAllColumn).subscribe(response => {
+      if (response.success) {
+        alert("Güncelleme işlemi başarılı");
+      } else {
+        alert("Güncelleme yapılamadı!\n" + response.message);
+      }
+    })
+  }
+
+  deleteWholesalerDebt(){
+    this.wholesalerDebtService.deleteWholesalerDebt(this.wholesalerDebtGetAllColumn.wholesalerDebtId)
+      .subscribe(response => {
+        if (response.success) {
+          alert("Borç başarılı bir şekilde silindi");
+        } else {
+          alert("Borç silinemedi!\n" + response.message);
+        }
+    })
   }
 
 }

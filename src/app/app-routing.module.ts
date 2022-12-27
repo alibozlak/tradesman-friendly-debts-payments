@@ -1,3 +1,5 @@
+import { WholesalerPaymentDetailComponent } from './components/wholesaler-payment-detail/wholesaler-payment-detail.component';
+import { ListWholesalerPaymentsComponent } from './components/list-wholesaler-payments/list-wholesaler-payments.component';
 import { WholesalerDebtDetailComponent } from './components/wholesaler-debt-detail/wholesaler-debt-detail.component';
 import { ListWholesalerDabtsComponent } from './components/list-wholesaler-dabts/list-wholesaler-dabts.component';
 import { AddWholesalerPaymentComponent } from './components/add-wholesaler-payment/add-wholesaler-payment.component';
@@ -21,6 +23,9 @@ const routes: Routes = [
   { path : "wholesaler-debs-and-payments/:wholesalerId/add-payment", component : AddWholesalerPaymentComponent },
   { path : "wholesaler-debs-and-payments/:wholesalerId/list-debts", component : ListWholesalerDabtsComponent },
   { path : "wholesaler-debt-detail/:wholesalerDebtId", component : WholesalerDebtDetailComponent },
+  { path : "wholesaler-debs-and-payments/:wholesalerId/list-payments", 
+    component : ListWholesalerPaymentsComponent },
+  { path : "wholesaler-payment-detail/:wholesalerPaymentId", component : WholesalerPaymentDetailComponent },
 ];
 
 @NgModule({
